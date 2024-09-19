@@ -48,12 +48,12 @@ const listWithOneBlog = [
     }
 ]
 
-const notesInDb = async () => {
+const blogsInDb = async () => {
     return (await Blog.find({})).map(blog => blog.toJSON())
 }
 
 module.exports = {
     blogs,
     listWithOneBlog,
-    notesInDb
+    blogsInDb
 }
