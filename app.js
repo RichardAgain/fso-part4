@@ -17,6 +17,7 @@ const blogs = require('./controllers/blogs')
 const users = require('./controllers/users')
 const login = require('./controllers/login')
 const { getRequestUser, getRequestToken } = require('./middleware/authMiddleware')
+const errorMiddleware = require('./middleware/errorMiddleware')
 
 const app = express()
 
@@ -29,12 +30,11 @@ app.use('/api/login', login)
 app.use('/api/users', users)
 app.use('/api/blogs', blogs)
 
-app.use((err, req, res, next) => {
-    res.status(400).json({ error: err.message })
-})
+app.use(errorMiddleware)
 
 app.use((req, res) => {
     res.status(404).json({ error: 'unknown endpoint' })
 })
 
 module.exports = app
+ 

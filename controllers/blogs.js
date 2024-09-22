@@ -32,7 +32,7 @@ router.post("/", async (request, response) => {
 
   const result = await blog.save()
 
-  response.status(201).json({ result })
+  response.status(201).json( result )
 })
 
 router.patch("/:id", async (request, response) => {

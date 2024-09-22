@@ -16,8 +16,6 @@ const testUser = {
 
 before(async () => {
   await User.deleteMany()
-
-  console.log("yeah")
 })
 
 describe("user tests", () => {
